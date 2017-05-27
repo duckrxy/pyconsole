@@ -29,7 +29,10 @@ class JavLibrary(object):
     def GetActress(self, text):
         reg = '<a href=\"vl_star.php\?s=.{2,6}\" rel=\"tag\">(.*)<\/a>'
         actresses = re.findall(reg, text)
-        return actresses[0]
+        if (not actresses):
+            return ""
+        else:
+            return actresses[0]
 
     def SearchNumber(self, number):
         upperNumber = str(number).upper()
